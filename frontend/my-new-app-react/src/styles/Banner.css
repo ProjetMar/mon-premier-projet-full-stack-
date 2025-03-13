@@ -1,0 +1,19 @@
+.banner{
+    background-image: url('../assets/Coscous.jpg');
+    height: 300px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: auto;
+}
+.banner__title{
+    color: firebrick;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+    padding: auto;
+    padding-left: 45%;
+    padding-right: 10%;
+}
