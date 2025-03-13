@@ -15,6 +15,5 @@ root.render(
         <Route path="/add" element={<AddRecette />} />
       </Routes>
     </Router>
-  </React.StrictMode>,
-  document.getElementById('root')
+  </React.StrictMode>
 )
