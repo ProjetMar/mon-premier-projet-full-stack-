@@ -27,6 +27,11 @@ app.post('/api/recette', (req, res, next) => {
 // app.use((req, res) => {
 //    res.json({ message: 'Votre requête a bien été reçue !' }); 
 // });
+app.get('/api/recette/:id', (req, res, next) => {
+   Recette.findOne({ _id: req.params.id })
+     .then(recette => res.status(200).json(recette))
+     .catch(error => res.status(404).json({ error }));
+ });
 app.get('/api/recette', (req, res, next) => {
    Recette.find()
     .then(things=>res.status(200).json(things))
