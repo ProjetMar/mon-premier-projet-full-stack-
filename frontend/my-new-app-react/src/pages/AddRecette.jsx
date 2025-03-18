@@ -1,5 +1,6 @@
 import Header from "../components/Header";
 import React, { useState } from "react";
+import { apiService } from '../service/apiService';
 function AddRecette() {
   const [title, setTitle] = useState("");
   const [ingredients, setIngredients] = useState('');
@@ -13,24 +14,13 @@ function AddRecette() {
       instructions };
     
     try {
-      const response = await fetch("http://localhost:3000/api/recette", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
-      
-      if (!response.ok) {
-        throw new Error("Erreur lors de l'envoi des données");
-      }
-      
+      await apiService.createRecette(data);
       setMessage("Données envoyées avec succès !");
       setTitle("");
-    } catch (error) {
-      setMessage(error.message);
       setIngredients('');
       setInstructions('');
+    } catch (error) {
+      setMessage(error.message);
     }
   };
 

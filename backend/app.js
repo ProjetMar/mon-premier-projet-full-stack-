@@ -27,6 +27,16 @@ app.post('/api/recette', (req, res, next) => {
 // app.use((req, res) => {
 //    res.json({ message: 'Votre requête a bien été reçue !' }); 
 // });
+app.put('/api/recette/:id', (req, res, next) => {
+   Recette.updateOne({ _id: req.params.id }, { ...req.body, _id: req.params.id })
+     .then(() => res.status(200).json({ message: 'Objet modifié !'}))
+     .catch(error => res.status(400).json({ error }));
+ });
+ app.delete('/api/recette/:id', (req, res, next) => {
+   Recette.deleteOne({ _id: req.params.id })
+     .then(() => res.status(200).json({ message: 'Objet supprimé !'}))
+     .catch(error => res.status(400).json({ error }));
+ });
 app.get('/api/recette/:id', (req, res, next) => {
    Recette.findOne({ _id: req.params.id })
      .then(recette => res.status(200).json(recette))
