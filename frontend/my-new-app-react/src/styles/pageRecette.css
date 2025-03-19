@@ -1,0 +1,81 @@
+.recette-container {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .recette-label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .recette-textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-bottom: 10px;
+    resize: vertical;
+    min-height: 80px;
+  }
+  
+  .recette-info {
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+  
+  .recette-buttons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .recette-button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .recette-button--save {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .recette-button--save:hover {
+    background-color: #218838;
+  }
+  
+  .recette-button--cancel {
+    background-color: #6c757d;
+    color: white;
+  }
+  
+  .recette-button--cancel:hover {
+    background-color: #5a6268;
+  }
+  
+  .recette-button--edit {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .recette-button--edit:hover {
+    background-color: #0056b3;
+  }
+  
+  .recette-button--delete {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  .recette-button--delete:hover {
+    background-color: #c82333;
+  }
+  

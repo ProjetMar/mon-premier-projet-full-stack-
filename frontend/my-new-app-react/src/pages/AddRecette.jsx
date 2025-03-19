@@ -1,6 +1,7 @@
 import Header from "../components/Header";
 import React, { useState } from "react";
 import { apiService } from '../service/apiService';
+import '../styles/pageAddRecette.css'
 function AddRecette() {
   const [title, setTitle] = useState("");
   const [ingredients, setIngredients] = useState('');
@@ -27,39 +28,41 @@ function AddRecette() {
   return (
     <>
     <Header />
-    <div>
-      <h2>Ajouter une recette</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Titre:</label>
-          <input
+    <div className="form-container">
+      <h2 className="form-title">Ajouter une recette</h2>
+      <form onSubmit={handleSubmit} className="form">
+        <div className="form-group">
+          <label className="form-label">Titre:</label>
+          <input className="form-input"
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             required
           />
         </div>
-        <div>
-          <label htmlFor="ingredients">Ingrédients:</label>
+        <div className="form-group">
+          <label htmlFor="ingredients" className="form-label">Ingrédients:</label>
           <textarea
             id="ingredients"
             value={ingredients}
             onChange={(e) => setIngredients(e.target.value)}
             required
+            className="form-textarea"
           />
         </div>
-        <div>
-          <label htmlFor="instructions">Instructions:</label>
+        <div className="form-group">
+          <label htmlFor="instructions" className="form-label">Instructions:</label>
           <textarea
             id="instructions"
             value={instructions}
             onChange={(e) => setInstructions(e.target.value)}
             required
+            className="form-textarea"
           />
         </div>
-        <button type="submit">Envoyer</button>
+        <button type="submit" className="form-button">Envoyer</button>
       </form>
-      {message && <p>{message}</p>}
+      {message && <p className="form-message">{message}</p>}
     </div>
   </>
   );

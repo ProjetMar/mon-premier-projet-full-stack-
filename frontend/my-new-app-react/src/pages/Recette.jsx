@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { apiService } from "../service/apiService";
+import '../styles/pageRecette.css'
 function Recette() {
     const { id } = useParams();
     const navigate = useNavigate(); // Permet de rediriger après suppression
@@ -49,33 +50,39 @@ function Recette() {
     }
 
     return (
-        <div>
+        <div className="recette-container">
             {editMode ? (
                 // Formulaire d'édition
-                <div>
-                    <label htmlFor="ingredients">Ingrédients:</label>
+                <div className="recette-edit">
+                    <label className="recette-label" htmlFor="ingredients">Ingrédients:</label>
                     <textarea
                         id="ingredients"
                         type="text"
                         value={editedRecette.ingredients}
                         onChange={(e) => setEditedRecette({ ...editedRecette, ingredients: e.target.value })}
+                        className="recette-textarea"
                     />
-                    <label htmlFor="instructions">Instructions:</label>
+                    <label htmlFor="instructions" className="recette-label">Instructions:</label>
                     <textarea
                         id="instructions"
                         value={editedRecette.instructions}
                         onChange={(e) => setEditedRecette({ ...editedRecette, instructions: e.target.value })}
+                        className="recette-textarea"
                     />
-                    <button onClick={handleEdit}>Sauvegarder</button>
-                    <button onClick={() => setEditMode(false)}>Annuler</button>
+                    <div className="recette-buttons">
+                        <button onClick={handleEdit} className="recette-button recette-button--save">Sauvegarder</button>
+                        <button onClick={() => setEditMode(false)} className="recette-button recette-button--cancel">Annuler</button>
+                    </div>
                 </div>
             ) : (
                 // Affichage normal
-                <div>
-                    <div>Ingredients: {data.ingredients}</div>
-                    <div>Instructions: {data.instructions}</div>
-                    <button onClick={() => setEditMode(true)}>Modifier</button>
-                    <button onClick={handleDelete} style={{ color: "red" }}>Supprimer</button>
+                <div className="recette-view">
+                    <div className="recette-info"><strong>Ingrédients:</strong> {data.ingredients}</div>
+                    <div className="recette-info"><strong>Instructions:</strong> {data.instructions}</div>
+                    <div className="recette-buttons">
+                        <button onClick={() => setEditMode(true)} className="recette-button recette-button--edit">Modifier</button>
+                        <button onClick={handleDelete} className="recette-button recette-button--delete">Supprimer</button>
+                    </div>
                 </div>
             )}
         </div>
