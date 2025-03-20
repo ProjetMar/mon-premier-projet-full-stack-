@@ -1,7 +1,8 @@
 
 const express = require('express');
 const mongoose = require('mongoose');
-const recetteRoutes = require('./routes/recette')
+const recetteRoutes = require('./routes/recette');
+const userRoutes = require('./routes/user');
 
 mongoose.connect("mongodb://dataRecettesMarwa:Marwa17041995@cluster0-shard-00-00.ezuqt.mongodb.net:27017,cluster0-shard-00-01.ezuqt.mongodb.net:27017,cluster0-shard-00-02.ezuqt.mongodb.net:27017/?ssl=true&replicaSet=atlas-kxg824-shard-0&authSource=admin&retryWrites=true&w=majority&appName=Cluster0",
    { useNewUrlParser: true,
@@ -18,6 +19,7 @@ mongoose.connect("mongodb://dataRecettesMarwa:Marwa17041995@cluster0-shard-00-00
 });
 
 app.use('/api/recette',recetteRoutes);
+app.use('/api/auth', userRoutes);
 
 module.exports = app;
 
